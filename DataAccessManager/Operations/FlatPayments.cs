@@ -5,7 +5,7 @@ using DataAccessManager.Interface;
 
 namespace DataAccessManager.Operations
 {
-    internal class FlatPayments : IFlatPayments
+    public class FlatPayments : IFlatPayments
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }

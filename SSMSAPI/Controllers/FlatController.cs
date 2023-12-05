@@ -10,7 +10,7 @@ using dam = DataAccessManager.Operations;
 namespace SSMSAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    //[ApiController]
     public class FlatController : ControllerBase
     {
         FlatDetails flatDetails = null;
@@ -23,7 +23,7 @@ namespace SSMSAPI.Controllers
 
         [HttpGet]
         [Route("Flat/FlatList")]
-        public IActionResult GetFlatlist(Society society)
+        public IActionResult GetFlatlist([FromBody] Society society)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace SSMSAPI.Controllers
         }
         [HttpGet]
         [Route("Flat/GetFlatDetails")]
-        public IActionResult GetFlatDetails(Society society, FlatDetails flatDetails)
+        public IActionResult GetFlatDetails([FromBody] Society society, [FromBody] FlatDetails flatDetails)
         {
             try
             {

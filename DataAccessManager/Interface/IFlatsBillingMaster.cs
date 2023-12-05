@@ -2,7 +2,7 @@
 
 namespace DataAccessManager.Interface
 {
-    internal interface IFlatsBillingMaster
+    public interface IFlatsBillingMaster
     {
         DataSet GetFlatBillingDetails(Models.FlatDetails flatDetails);
 

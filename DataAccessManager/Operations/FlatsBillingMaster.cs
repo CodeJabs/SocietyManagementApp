@@ -8,7 +8,7 @@ using System;
 
 namespace DataAccessManager.Operations
 {
-    internal class FlatsBillingMaster : IFlatsBillingMaster
+    public class FlatsBillingMaster : IFlatsBillingMaster
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }

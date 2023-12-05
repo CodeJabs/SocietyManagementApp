@@ -6,7 +6,7 @@ using DataAccessManager.Interface;
 namespace DataAccessManager.Operations
 {
     
-    internal class ParkingRecords : IParkingRecords
+    public class ParkingRecords : IParkingRecords
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }
