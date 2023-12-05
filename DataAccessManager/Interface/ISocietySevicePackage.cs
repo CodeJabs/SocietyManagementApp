@@ -2,7 +2,7 @@
 
 namespace DataAccessManager.Interface
 {
-    internal interface ISocietySevicePackage
+    public interface ISocietySevicePackage
     {
         public DataSet GetSocietyServicePackage();
 

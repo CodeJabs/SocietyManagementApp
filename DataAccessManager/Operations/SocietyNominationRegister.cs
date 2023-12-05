@@ -5,7 +5,7 @@ using DataAccessManager.Interface;
 
 namespace DataAccessManager.Operations
 {
-    internal class SocietyNominationRegister : ISocietyNominationRegister
+    public class SocietyNominationRegister : ISocietyNominationRegister
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }

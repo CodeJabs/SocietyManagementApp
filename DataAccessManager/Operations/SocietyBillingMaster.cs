@@ -1,9 +1,10 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
+using DataAccessManager.Interface;
 
 namespace DataAccessManager.Operations
 {
-    internal class SocietyBillingMaster
+    public class SocietyBillingMaster : ISocietyBillingMaster
     {
 
         private SqlConnection _sqlConnection { get; set; }

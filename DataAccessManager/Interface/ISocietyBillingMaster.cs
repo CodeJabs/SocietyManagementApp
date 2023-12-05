@@ -2,7 +2,7 @@
 
 namespace DataAccessManager.Interface
 {
-    internal interface ISocietyBillingMaster
+    public interface ISocietyBillingMaster
     {
         DataSet GetBillingMasterDetails(Models.Society society);
 

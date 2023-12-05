@@ -2,7 +2,7 @@
 
 namespace DataAccessManager.Interface
 {
-    internal interface IVehicleMaster
+    public interface IVehicleMaster
     {
         DataSet GetVehicleMasterList();
 

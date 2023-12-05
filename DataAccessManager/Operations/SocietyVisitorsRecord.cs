@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace DataAccessManager.Operations
 {
-    internal class SocietyVisitorsRecord : ISocietyVisitorsRecord
+    public class SocietyVisitorsRecord : ISocietyVisitorsRecord
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }

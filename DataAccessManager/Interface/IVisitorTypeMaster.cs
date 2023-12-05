@@ -3,7 +3,7 @@ using System.Data;
 
 namespace DataAccessManager.Interface
 {
-    internal interface IVisitorTypeMaster
+    public interface IVisitorTypeMaster
 
     {
         DataSet GetVisitorTypesList();

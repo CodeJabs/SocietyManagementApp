@@ -4,7 +4,7 @@ using DataAccessManager.Interface;
 
 namespace DataAccessManager.Operations
 {
-    internal class SocietyFlatsBills : ISocietyFlatsBills
+    public class SocietyFlatsBills : ISocietyFlatsBills
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }

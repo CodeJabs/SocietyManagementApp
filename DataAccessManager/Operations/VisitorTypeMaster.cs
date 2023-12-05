@@ -4,7 +4,7 @@ using DataAccessManager.Interface;
 
 namespace DataAccessManager.Operations
 {
-    internal class VisitorTypeMaster : IVisitorTypeMaster
+    public class VisitorTypeMaster : IVisitorTypeMaster
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }

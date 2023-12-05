@@ -1,11 +1,12 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 using Models;
+using DataAccessManager.Interface;
 
 
 namespace DataAccessManager.Operations
 {
-    internal class SocietyComitteeMembers
+    public class SocietyComitteeMembers : ISocietyComitteeMembers
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }

@@ -3,7 +3,7 @@ using System.Data;
 
 namespace DataAccessManager.Interface
 {
-    internal interface ISocietyComitteeMembers
+    public interface ISocietyComitteeMembers
     {
         DataSet GetCommitteeMembers(UserMaster userMaster);
 
