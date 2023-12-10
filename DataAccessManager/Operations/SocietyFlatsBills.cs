@@ -4,11 +4,8 @@ using DataAccessManager.Interface;
 
 namespace DataAccessManager.Operations
 {
-<<<<<<< HEAD
-    public class SocietyFlatsBills : ISocietyFlatsBills
-=======
-    internal class SocietyFlatsBills : ISocietyFlatsBills
->>>>>>> e6e14b94aa92292adb2cde8ad349c468eb6c2015
+ 
+    public class SocietyFlatsBills : ISocietyFlatsBills 
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }

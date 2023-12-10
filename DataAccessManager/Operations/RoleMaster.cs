@@ -4,11 +4,9 @@ using DataAccessManager.Interface;
 
 namespace DataAccessManager.Operations
 {
-<<<<<<< HEAD
+
     public class RoleMaster : IRoleMaster
-=======
-    internal class RoleMaster : IRoleMaster
->>>>>>> e6e14b94aa92292adb2cde8ad349c468eb6c2015
+
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }

@@ -5,11 +5,8 @@ using DataAccessManager.Interface;
 
 namespace DataAccessManager.Operations
 {
-<<<<<<< HEAD
+
     public class VehicleMaster : IVehicleMaster
-=======
-    internal class VehicleMaster
->>>>>>> e6e14b94aa92292adb2cde8ad349c468eb6c2015
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }
@@ -31,7 +28,7 @@ namespace DataAccessManager.Operations
         public DataSet GetVehicleMasterList()
         {
             _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.GET_VEHICLE_MASTER;            
+            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.GET_VEHICLE_MASTER;
             _sqlDataAdapter.SelectCommand = _sqlCommand;
             _sqlDataAdapter.Fill(_dataSet);
             return _dataSet;
@@ -41,7 +38,7 @@ namespace DataAccessManager.Operations
         {
             _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
             _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_NEW_VEHICLE_TYPE;
-            _sqlCommand.Parameters.AddWithValue("@VehicleType", vehicleMaster.VehicleType);            
+            _sqlCommand.Parameters.AddWithValue("@VehicleType", vehicleMaster.VehicleType);
             _sqlCommand.ExecuteNonQuery();
             return vehicleMaster;
         }

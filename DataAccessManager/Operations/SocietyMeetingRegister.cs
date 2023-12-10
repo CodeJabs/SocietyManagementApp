@@ -4,11 +4,8 @@ using DataAccessManager.Interface;
 
 namespace DataAccessManager.Operations
 {
-<<<<<<< HEAD
+
     public class SocietyMeetingRegister : ISocietyMeetingRegister
-=======
-    internal class SocietyMeetingRegister : ISocietyMeetingRegister
->>>>>>> e6e14b94aa92292adb2cde8ad349c468eb6c2015
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }
@@ -37,7 +34,7 @@ namespace DataAccessManager.Operations
             return _dataSet;
         }
 
-        public Models.SocietyMeetingRegister Add(Models.SocietyMeetingRegister societyMeetingRegister,Models.Society society)
+        public Models.SocietyMeetingRegister Add(Models.SocietyMeetingRegister societyMeetingRegister, Models.Society society)
         {
             _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
             _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_SOCIETY_MEETINGS;
