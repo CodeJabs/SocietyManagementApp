@@ -1,10 +1,17 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
+<<<<<<< HEAD
 using DataAccessManager.Interface;
 
 namespace DataAccessManager.Operations
 {
     public class SocietyBillingMaster : ISocietyBillingMaster
+=======
+
+namespace DataAccessManager.Operations
+{
+    internal class SocietyBillingMaster
+>>>>>>> e6e14b94aa92292adb2cde8ad349c468eb6c2015
     {
 
         private SqlConnection _sqlConnection { get; set; }

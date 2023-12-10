@@ -4,7 +4,11 @@ using DataAccessManager.Interface;
 
 namespace DataAccessManager.Operations
 {
+<<<<<<< HEAD
     public class SocietyMemberMaster : ISocietyMemberMaster
+=======
+    internal class SocietyMemberMaster : ISocietyMemberMaster
+>>>>>>> e6e14b94aa92292adb2cde8ad349c468eb6c2015
     {
 
         private SqlConnection _sqlConnection { get; set; }

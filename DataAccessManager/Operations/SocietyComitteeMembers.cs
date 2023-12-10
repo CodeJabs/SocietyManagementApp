@@ -1,12 +1,19 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 using Models;
+<<<<<<< HEAD
 using DataAccessManager.Interface;
+=======
+>>>>>>> e6e14b94aa92292adb2cde8ad349c468eb6c2015
 
 
 namespace DataAccessManager.Operations
 {
+<<<<<<< HEAD
     public class SocietyComitteeMembers : ISocietyComitteeMembers
+=======
+    internal class SocietyComitteeMembers
+>>>>>>> e6e14b94aa92292adb2cde8ad349c468eb6c2015
     {
         private SqlConnection _sqlConnection { get; set; }
         private ConnectionInstance _connectionInstance { get; set; }
