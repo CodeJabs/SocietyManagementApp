@@ -64,11 +64,11 @@ namespace SSMSAPI.Controllers
         [HttpPost]
         [Route("FlatBillingMaster/Add")]
 
-        public IActionResult Save([FromBody]mod.FlatDetails flatDetails, [FromBody] mod.FlatsBillingMaster flatsBillingMaster)
+        public IActionResult Save([FromBody] mod.FlatsBillingMaster flatsBillingMaster)
         {
             try
             {
-                IflatsBillingMaster.Add(flatDetails, flatsBillingMaster);
+                IflatsBillingMaster.Add(flatsBillingMaster.FlatDetails, flatsBillingMaster);
                 return Ok(flatsBillingMaster);
 
             }
@@ -80,11 +80,11 @@ namespace SSMSAPI.Controllers
 
         [HttpPut]
         [Route("FlatBillingMaster/Update")]
-        public IActionResult UpdateFlatBilling([FromBody] mod.FlatDetails flatDetails, [FromBody] mod.FlatsBillingMaster flatsBillingMaster)
+        public IActionResult UpdateFlatBilling([FromBody] mod.FlatsBillingMaster flatsBillingMaster)
         {
             try
             {
-                IflatsBillingMaster.Update(flatDetails, flatsBillingMaster);
+                IflatsBillingMaster.Update(flatsBillingMaster.FlatDetails, flatsBillingMaster);
                 return Ok(flatsBillingMaster);
 
             }

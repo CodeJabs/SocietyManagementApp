@@ -54,12 +54,12 @@ namespace SSMSAPI.Controllers
         [HttpGet]
         [Route("Flat/GetFlatDetails")]
  
-        public IActionResult GetFlatDetails([FromBody] Society society, [FromBody] FlatDetails flatDetails)        
+        public IActionResult GetFlatDetails([FromBody] FlatDetails flatDetails)        
 
         {
             try
             {
-                var data = IflatDetails.GetFlatDetails(society, flatDetails);
+                var data = IflatDetails.GetFlatDetails(flatDetails.Society, flatDetails);
                 if (data.Tables == null) { return NotFound("Error ! Failed To get Records"); }
                 if (data.Tables[0].Rows.Count == 0) { return NotFound("No Records Found."); }
 
@@ -79,11 +79,11 @@ namespace SSMSAPI.Controllers
         [HttpPost]
         [Route("Flat/AddNewFlat")]
 
-        public IActionResult Save([FromBody] Society society, [FromBody] FlatDetails flatDetails, [FromBody] FlatOccupancyMaster flatOccupancyMaster)
+        public IActionResult Save([FromBody] FlatDetails flatDetails)
         {
             try
             {
-                IflatDetails.Save(society, flatDetails, flatOccupancyMaster);
+                IflatDetails.Save(flatDetails.Society, flatDetails, flatDetails.FlatOccupanyMaster);
                 return Ok(flatDetails);
             }
             catch (Exception ex)
@@ -96,11 +96,11 @@ namespace SSMSAPI.Controllers
         [HttpPut]
         [Route("Flat/UpdateFlat")]
 
-        public IActionResult Update([FromBody] Society society, [FromBody] FlatDetails flatDetails, [FromBody] FlatOccupancyMaster flatOccupancyMaster)
-        {
+        public IActionResult Update([FromBody] FlatDetails flatDetails)
+            {
             try
             {
-                IflatDetails.Update(society, flatDetails, flatOccupancyMaster);
+                IflatDetails.Update(flatDetails.Society, flatDetails, flatDetails.FlatOccupanyMaster);
                 return Ok(flatDetails);
             }
             catch (Exception ex)

@@ -22,11 +22,11 @@ namespace SSMSAPI.Controllers
 
         [HttpGet]
         [Route("SocietyFlatsBills/SocietyBillDetails")]
-        public IActionResult GetSocietyBillsDetails([FromBody] mod.Society society, [FromBody] mod.FlatDetails flatDetails)
+        public IActionResult GetSocietyBillsDetails([FromBody] mod.FlatDetails flatDetails)
         {
             try
             {
-                var data = IsocietyFlatBills.GetFlatsForSocietyBills(society, flatDetails);
+                var data = IsocietyFlatBills.GetFlatsForSocietyBills(flatDetails.Society, flatDetails);
                 if (data.Tables == null) { return NotFound("Error ! Failed To get Records"); }
                 if (data.Tables[0].Rows.Count == 0) { return NotFound("No Records Found."); }
                 flatsBills.ID = Convert.ToInt32(data.Tables[0].Rows[0]["ID"]);

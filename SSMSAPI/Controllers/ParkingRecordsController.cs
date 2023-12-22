@@ -49,11 +49,11 @@ namespace SSMSAPI.Controllers
 
         [HttpPost]
         [Route("ParkingRecords/AllotParking")]
-        public IActionResult AddNewParking([FromBody] mod.FlatDetails flatDetails, [FromBody] mod.VehicleMaster vehicleMaster, [FromBody] mod.ParkingRecords parkingRecords)
+        public IActionResult AddNewParking([FromBody] mod.ParkingRecords parkingRecords)
         {
             try
             {
-                IparkingRecords.Add(flatDetails, vehicleMaster, parkingRecords);
+                IparkingRecords.Add(parkingRecords.FlatDetails, parkingRecords.VehicleMaster, parkingRecords);
                 return Ok(parkingRecords);
             }
             catch (Exception ex)
@@ -65,11 +65,11 @@ namespace SSMSAPI.Controllers
 
         [HttpPost]
         [Route("ParkingRecords/UpdateAllotedParking")]
-        public IActionResult UpdateParking([FromBody] mod.FlatDetails flatDetails, [FromBody] mod.VehicleMaster vehicleMaster, [FromBody] mod.ParkingRecords parkingRecords)
+        public IActionResult UpdateParking([FromBody] mod.ParkingRecords parkingRecords)
         {
             try
             {
-                IparkingRecords.Update(flatDetails, vehicleMaster, parkingRecords);
+                IparkingRecords.Update(parkingRecords.FlatDetails, parkingRecords.VehicleMaster, parkingRecords);
                 return Ok(parkingRecords);
             }
             catch (Exception ex)

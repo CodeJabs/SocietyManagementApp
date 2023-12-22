@@ -46,11 +46,11 @@ namespace SSMSAPI.Controllers
 
         [HttpPost]
         [Route("SocietyBillingMaster/AddSocietyBilling")]
-        public IActionResult AddSocietyBillingInformation([FromBody] mod.Society society, [FromBody] mod.SocietyBillingMaster societyBillingMaster) 
+        public IActionResult AddSocietyBillingInformation([FromBody] mod.SocietyBillingMaster societyBillingMaster) 
         {
             try
             {
-                IsocietyBillingMaster.Add(society,societyBillingMaster);
+                IsocietyBillingMaster.Add(societyBillingMaster.Society, societyBillingMaster);
                 
                 return Ok(societyBillingMaster);
             }
@@ -63,11 +63,11 @@ namespace SSMSAPI.Controllers
 
         [HttpPut]
         [Route("SocietyBillingMaster/UpdateSocietyBilling")]
-        public IActionResult UpdateSocietyBillingInformation([FromBody] mod.Society society, [FromBody] mod.SocietyBillingMaster societyBillingMaster)
+        public IActionResult UpdateSocietyBillingInformation([FromBody] mod.SocietyBillingMaster societyBillingMaster)
         {
             try
             {
-                IsocietyBillingMaster.Update(society, societyBillingMaster);
+                IsocietyBillingMaster.Update(societyBillingMaster.Society, societyBillingMaster);
 
                 return Ok(societyBillingMaster);
             }

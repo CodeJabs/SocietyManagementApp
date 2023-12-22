@@ -47,11 +47,11 @@ namespace SSMSAPI.Controllers
 
         [HttpGet]
         [Route("FlatPayments/Details")]
-        public IActionResult GetFlatPaymentDetails([FromBody] mod.FlatDetails flatDetails, [FromBody] mod.FlatPayments flatPayments)
+        public IActionResult GetFlatPaymentDetails([FromBody] mod.FlatPayments flatPayments)
         {
             try
             {
-                var data = IflatPayments.GetFlatPaymentDetails(flatDetails, flatPayments);
+                var data = IflatPayments.GetFlatPaymentDetails(flatPayments.FlatDetails, flatPayments);
                 if (data.Tables == null) { return NotFound("Error ! Failed To get Records"); }
                 if (data.Tables[0].Rows.Count == 0) { return NotFound("No Records Found."); }
 
@@ -72,11 +72,11 @@ namespace SSMSAPI.Controllers
 
         [HttpPost]
         [Route("FlatPayments/SaveFlatPayment")]
-        public IActionResult AddNewFlatpayement([FromBody] mod.FlatDetails flatDetails, [FromBody] mod.FlatPayments flatPayments,[FromBody]mod.PaymentMaster paymentMaster, [FromBody] mod.UserMaster userMaster)
+        public IActionResult AddNewFlatpayement([FromBody] mod.FlatPayments flatPayments)
         {
             try
             {
-                var data = IflatPayments.Add(flatPayments,flatDetails,paymentMaster,userMaster);
+                var data = IflatPayments.Add(flatPayments, flatPayments.FlatDetails, flatPayments.PaymentMaster, flatPayments.UserMaster);
                 
                 return Ok(flatPayments);
             }
@@ -89,11 +89,11 @@ namespace SSMSAPI.Controllers
 
         [HttpPut]
         [Route("FlatPayments/EditFlatPayment")]
-        public IActionResult Update([FromBody] mod.FlatDetails flatDetails, [FromBody] mod.FlatPayments flatPayments, [FromBody] mod.PaymentMaster paymentMaster, [FromBody] mod.UserMaster userMaster)
+        public IActionResult Update([FromBody] mod.FlatPayments flatPayments)
         {
             try
             {
-                var data = IflatPayments.Update(flatPayments, flatDetails, paymentMaster, userMaster);
+                var data = IflatPayments.Update(flatPayments, flatPayments.FlatDetails, flatPayments.PaymentMaster, flatPayments.UserMaster);
 
                 return Ok(flatPayments);
             }

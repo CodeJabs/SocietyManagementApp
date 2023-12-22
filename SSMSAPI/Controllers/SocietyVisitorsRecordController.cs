@@ -21,11 +21,11 @@ namespace SSMSAPI.Controllers
 
         [HttpGet]
         [Route("SocietyVisitorsRecord/GetVisitorRecordByDate")]
-        public IActionResult GetVisitorRecord(mod.SocietyVisitorsRecord societyVisitorsRecord,DateTime entryDateTime)
+        public IActionResult GetVisitorRecord(mod.SocietyVisitorsRecord societyVisitorsRecord)
         {
             try
             {
-                var data = IsocietyVisitorRec.GetVisitorRecordByDateWise(societyVisitorsRecord, null, entryDateTime);
+                var data = IsocietyVisitorRec.GetVisitorRecordByDateWise(societyVisitorsRecord,null, societyVisitorsRecord.EntryTime);
                 if (data.Tables == null) { return NotFound("Error ! Failed To get Records"); }
                 if (data.Tables[0].Rows.Count == 0) { return NotFound("No Records Found."); }
                 List<mod.SocietyVisitorsRecord> societyVisitorsRecords = new List<mod.SocietyVisitorsRecord>();
