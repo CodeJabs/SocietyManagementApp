@@ -27,7 +27,7 @@ namespace DataAccessManager.Operations
 
         public DataSet GetVehicleMasterList()
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
+            _sqlCommand.CommandType = CommandType.StoredProcedure; 
             _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.GET_VEHICLE_MASTER;
             _sqlDataAdapter.SelectCommand = _sqlCommand;
             _sqlDataAdapter.Fill(_dataSet);
@@ -36,7 +36,7 @@ namespace DataAccessManager.Operations
 
         public Models.VehicleMaster Add(Models.VehicleMaster vehicleMaster)
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
             _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_NEW_VEHICLE_TYPE;
             _sqlCommand.Parameters.AddWithValue("@VehicleType", vehicleMaster.VehicleType);
             _sqlCommand.ExecuteNonQuery();
@@ -45,7 +45,7 @@ namespace DataAccessManager.Operations
 
         public Models.VehicleMaster Update(Models.VehicleMaster vehicleMaster)
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
             _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.UPDATE_VEHICLE_TYPE;
             _sqlCommand.Parameters.AddWithValue("@Id", vehicleMaster.ID);
             _sqlCommand.Parameters.AddWithValue("@VehicleType", vehicleMaster.VehicleType);
