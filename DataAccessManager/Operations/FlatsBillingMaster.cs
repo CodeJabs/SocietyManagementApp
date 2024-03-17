@@ -41,7 +41,7 @@ namespace DataAccessManager.Operations
         public Models.FlatsBillingMaster Add(Models.FlatDetails flatDetails,Models.FlatsBillingMaster flatsBillingMaster)
         {
             _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_NEW_FLAT_DETAILS;
+            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_FLATS_BILLING;
             _sqlCommand.Parameters.AddWithValue("@Type", flatsBillingMaster.Type);
             _sqlCommand.Parameters.AddWithValue("@StandardPricing", flatsBillingMaster.StandardPricing);
             _sqlCommand.Parameters.AddWithValue("@SGST", flatsBillingMaster.SGST);
@@ -55,6 +55,7 @@ namespace DataAccessManager.Operations
             _sqlCommand.Parameters.AddWithValue("@ServiceCharges", flatsBillingMaster.ServiceCharges);
             _sqlCommand.Parameters.AddWithValue("@ElectricityCharges", flatsBillingMaster.ElectricityCharges);
             _sqlCommand.Parameters.AddWithValue("@PropertyTax", flatsBillingMaster.PropertyTax);
+            _sqlCommand.Parameters.AddWithValue("@QuaterTypeID", flatsBillingMaster.BillingQuaterMaster.ID);
             _sqlCommand.ExecuteNonQuery();
             return flatsBillingMaster;
         }
@@ -62,7 +63,7 @@ namespace DataAccessManager.Operations
         public Models.FlatsBillingMaster Update(Models.FlatDetails flatDetails, Models.FlatsBillingMaster flatsBillingMaster)
         {
             _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_NEW_FLAT_DETAILS;
+            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.UDATE_FLATS_BILLING;
             _sqlCommand.Parameters.AddWithValue("@ID", flatsBillingMaster.Id); 
             _sqlCommand.Parameters.AddWithValue("@Type", flatsBillingMaster.Type);
             _sqlCommand.Parameters.AddWithValue("@StandardPricing", flatsBillingMaster.StandardPricing);
@@ -77,6 +78,7 @@ namespace DataAccessManager.Operations
             _sqlCommand.Parameters.AddWithValue("@ServiceCharges", flatsBillingMaster.ServiceCharges);
             _sqlCommand.Parameters.AddWithValue("@ElectricityCharges", flatsBillingMaster.ElectricityCharges);
             _sqlCommand.Parameters.AddWithValue("@PropertyTax", flatsBillingMaster.PropertyTax);
+            _sqlCommand.Parameters.AddWithValue("@QuaterTypeID", flatsBillingMaster.BillingQuaterMaster.ID);
             _sqlCommand.ExecuteNonQuery();
             return flatsBillingMaster;
         }
