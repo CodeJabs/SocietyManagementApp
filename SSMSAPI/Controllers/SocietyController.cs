@@ -51,6 +51,37 @@ namespace SSMSAPI.Controllers
             
         }
 
+
+        [HttpGet]
+        [Route("Society/GetSocietyDetails")]
+        public IActionResult GetSocietyDetails(int societyID)
+
+        {
+            try
+            {
+                var data = ISociety.GetSocietyDetails(societyID);
+                if (data.Tables == null) { return NotFound("Error ! Failed To get Records"); }
+                if (data.Tables[0].Rows.Count == 0) { return NotFound("No Records Found."); }
+                Society society = new Society();  
+                society.ID = Convert.ToInt32(data.Tables[0].Rows[0]["ID"]);
+                society.Name = Convert.ToString(data.Tables[0].Rows[0]["Name"]);
+                society.Abbreviation = Convert.ToString(data.Tables[0].Rows[0]["Abbreviation"]);
+                society.Address = Convert.ToString(data.Tables[0].Rows[0]["Address"]);
+                society.TelephoneNumber = Convert.ToInt32(data.Tables[0].Rows[0]["TelePhoneNumber"]);
+                society.societyServicePackage = new SocietyServicePackage();
+                society.societyServicePackage.ID= Convert.ToInt32(data.Tables[0].Rows[0]["PackageID"]);
+                society.societyServicePackage.Type = Convert.ToString(data.Tables[0].Rows[0]["PackageType"]);
+                society.societyServicePackage.PackagePrice = Convert.ToInt32(data.Tables[0].Rows[0]["PackagePrice"]);
+
+                return Ok(society);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
+
         [HttpPost]
         [Route("Society/AddNewSocitey")]
 

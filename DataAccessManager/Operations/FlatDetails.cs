@@ -47,26 +47,28 @@ namespace DataAccessManager.Operations
 
         public Models.FlatDetails Save(Models.Society society, Models.FlatDetails flatDetails,Models.FlatOccupancyMaster flatOccupancyMaster)
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_NEW_FLAT_DETAILS;
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            _sqlCommand.CommandText = StoreProcedures.ADD_NEW_FLAT_DETAILS;
             _sqlCommand.Parameters.AddWithValue("@SocietyID", society.ID);
             _sqlCommand.Parameters.AddWithValue("@FlatNo", flatDetails.FlatNo);
             _sqlCommand.Parameters.AddWithValue("@FlatOwner", flatDetails.FlatOwner);
             _sqlCommand.Parameters.AddWithValue("@ContactNo", flatDetails.ContactNo);
             _sqlCommand.Parameters.AddWithValue("@FlatOccupanyID", flatOccupancyMaster.ID);
+            _sqlCommand.ExecuteNonQuery();
             return flatDetails;
         }
 
         public Models.FlatDetails Update(Models.Society society, Models.FlatDetails flatDetails, Models.FlatOccupancyMaster flatOccupancyMaster)
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.UPDATE_FLAT_DETAILS;
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            _sqlCommand.CommandText = StoreProcedures.UPDATE_FLAT_DETAILS;
             _sqlCommand.Parameters.AddWithValue("@ID", flatDetails.ID); 
             _sqlCommand.Parameters.AddWithValue("@SocietyID", society.ID);
             _sqlCommand.Parameters.AddWithValue("@FlatNo", flatDetails.FlatNo);
             _sqlCommand.Parameters.AddWithValue("@FlatOwner", flatDetails.FlatOwner);
             _sqlCommand.Parameters.AddWithValue("@ContactNo", flatDetails.ContactNo);
             _sqlCommand.Parameters.AddWithValue("@FlatOccupanyID", flatOccupancyMaster.ID);
+            _sqlCommand.ExecuteNonQuery();
             return flatDetails;
         }
     }
