@@ -6,7 +6,7 @@ namespace DataAccessManager.Interface
 {
    public interface IFlatDetails
     {
-        DataSet GetFlatsList(Models.Society society);
+        DataSet GetFlatsList(int societyID);
 
         DataSet GetFlatDetails(Models.Society society, Models.FlatDetails flatDetails);
 

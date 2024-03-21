@@ -1,4 +1,5 @@
 ﻿using DataAccessManager.Interface;
+using Models;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -24,11 +25,12 @@ namespace DataAccessManager.Operations
             _dataSet = new DataSet();
         }
 
-        public DataSet GetFlatsList(Models.Society society)
+        public DataSet GetFlatsList(int SocietyID)
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.GET_ALL_FLAT_LIST;
-            _sqlCommand.Parameters.AddWithValue("@SocietyID", society.ID);
+            //_sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.GET_ALL_FLAT_LIST;            
+            _sqlCommand.Parameters.AddWithValue("@SocietyID", SocietyID);
             _sqlDataAdapter.SelectCommand = _sqlCommand;
             _sqlDataAdapter.Fill(_dataSet);
             return _dataSet;

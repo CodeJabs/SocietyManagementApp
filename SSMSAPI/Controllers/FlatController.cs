@@ -26,19 +26,19 @@ namespace SSMSAPI.Controllers
         [HttpGet]
         [Route("Flat/FlatList")]        
  
-        public IActionResult GetFlatlist(Society society)
+        public IActionResult GetFlatlist(int societyID)
 
         {
             try
             {
-                var data = IflatDetails.GetFlatsList(society);
+                var data = IflatDetails.GetFlatsList(societyID);
                 if (data.Tables == null) { return NotFound("Error ! Failed To get Records"); }
                 if (data.Tables[0].Rows.Count == 0) { return NotFound("No Records Found."); }
 
                 List<FlatDetails> flatDetails = new List<FlatDetails>();
                 foreach (DataRow item in data.Tables[0].Rows)
                 {
-                    flatDetails.Add(new FlatDetails { ID = Convert.ToInt32(item["ID"]), FlatNo = Convert.ToInt32("FlatNo") });
+                    flatDetails.Add(new FlatDetails { ID = Convert.ToInt32(item["ID"]), FlatNo = Convert.ToInt32(item["FlatNo"]) });
                 }
 
                 return Ok(flatDetails);
