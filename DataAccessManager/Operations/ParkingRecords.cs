@@ -39,27 +39,29 @@ namespace DataAccessManager.Operations
 
         public Models.ParkingRecords Add(Models.FlatDetails flatDetails,Models.VehicleMaster vehicleMaster,Models.ParkingRecords parkingRecords)
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_PARKING_RECORD;
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            _sqlCommand.CommandText = StoreProcedures.ADD_PARKING_RECORD;
             _sqlCommand.Parameters.AddWithValue("@FlatID", flatDetails.ID);
             _sqlCommand.Parameters.AddWithValue("@SocietyID", flatDetails.Society.ID);
             _sqlCommand.Parameters.AddWithValue("@VehicleTypeId", vehicleMaster.ID);
             _sqlCommand.Parameters.AddWithValue("@ParkingNo", parkingRecords.ParkinghNo);
             _sqlCommand.Parameters.AddWithValue("@VehicleNumber", parkingRecords.VehicleNumber);
+            _sqlCommand.Parameters.AddWithValue("@ParkingCharges", parkingRecords.ParkingCharges);
             _sqlCommand.ExecuteNonQuery();
             return parkingRecords;
         }
 
         public Models.ParkingRecords Update(Models.FlatDetails flatDetails, Models.VehicleMaster vehicleMaster, Models.ParkingRecords parkingRecords)
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_PARKING_RECORD;
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            _sqlCommand.CommandText = StoreProcedures.ADD_PARKING_RECORD;
             _sqlCommand.Parameters.AddWithValue("@ID", parkingRecords.ID);
             _sqlCommand.Parameters.AddWithValue("@FlatID", flatDetails.ID);
             _sqlCommand.Parameters.AddWithValue("@SocietyID", flatDetails.Society.ID);
             _sqlCommand.Parameters.AddWithValue("@VehicleTypeId", vehicleMaster.ID);
             _sqlCommand.Parameters.AddWithValue("@ParkingNo", parkingRecords.ParkinghNo);
             _sqlCommand.Parameters.AddWithValue("@VehicleNumber", parkingRecords.VehicleNumber);
+            _sqlCommand.Parameters.AddWithValue("@ParkingCharges", parkingRecords.ParkingCharges);
             _sqlCommand.ExecuteNonQuery();
             return parkingRecords;
         }

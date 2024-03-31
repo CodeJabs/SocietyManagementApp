@@ -35,8 +35,8 @@ namespace DataAccessManager.Operations
 
         public Models.OccupancyMaster Add(Models.OccupancyMaster occupancyMaster)
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_OCCUPANCY_MASTER;
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            _sqlCommand.CommandText = StoreProcedures.ADD_OCCUPANCY_MASTER;
             _sqlCommand.Parameters.AddWithValue("@OccupancyType", occupancyMaster.OccupancyType);
             _sqlCommand.ExecuteNonQuery();
             return occupancyMaster;

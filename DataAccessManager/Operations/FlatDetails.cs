@@ -36,12 +36,13 @@ namespace DataAccessManager.Operations
             return _dataSet;
         }
 
-        public DataSet GetFlatDetails(Models.Society society,Models.FlatDetails flatDetails)
+        public DataSet GetFlatDetails(int societyID, int flatNo)
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
+            //_sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
             _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.GET_FLAT_DETAILS;
-            _sqlCommand.Parameters.AddWithValue("@SocietyID", society.ID);
-            _sqlCommand.Parameters.AddWithValue("@FlatID", flatDetails.ID);
+            _sqlCommand.Parameters.AddWithValue("@SocietyID", societyID);
+            _sqlCommand.Parameters.AddWithValue("@FlatNo", flatNo);
             _sqlDataAdapter.SelectCommand = _sqlCommand;
             _sqlDataAdapter.Fill(_dataSet);
             return _dataSet;

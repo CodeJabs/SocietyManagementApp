@@ -37,7 +37,7 @@ namespace DataAccessManager.Operations
         public Models.VehicleMaster Add(Models.VehicleMaster vehicleMaster)
         {
             _sqlCommand.CommandType = CommandType.StoredProcedure;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_NEW_VEHICLE_TYPE;
+            _sqlCommand.CommandText = StoreProcedures.ADD_NEW_VEHICLE_TYPE;
             _sqlCommand.Parameters.AddWithValue("@VehicleType", vehicleMaster.VehicleType);
             _sqlCommand.ExecuteNonQuery();
             return vehicleMaster;

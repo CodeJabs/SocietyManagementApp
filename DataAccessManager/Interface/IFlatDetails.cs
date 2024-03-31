@@ -8,7 +8,7 @@ namespace DataAccessManager.Interface
     {
         DataSet GetFlatsList(int societyID);
 
-        DataSet GetFlatDetails(Models.Society society, Models.FlatDetails flatDetails);
+        DataSet GetFlatDetails(int societyID, int flatNo);
 
         Models.FlatDetails Save(Models.Society society, Models.FlatDetails flatDetails, Models.FlatOccupancyMaster flatOccupancyMaster);
 

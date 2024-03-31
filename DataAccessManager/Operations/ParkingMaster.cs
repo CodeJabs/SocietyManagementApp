@@ -35,8 +35,8 @@ namespace DataAccessManager.Operations
 
         public Models.ParkingMaster Add(Models.ParkingMaster parkingMaster)
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.ADD_PARKING_MASTER;
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            _sqlCommand.CommandText = StoreProcedures.ADD_PARKING_MASTER;
             _sqlCommand.Parameters.AddWithValue("@ParkingType", parkingMaster.ParkingType);
             _sqlCommand.ExecuteNonQuery();
             return parkingMaster;

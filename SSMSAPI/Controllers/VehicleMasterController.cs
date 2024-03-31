@@ -31,7 +31,7 @@ namespace SSMSAPI.Controllers
                 List<mod.VehicleMaster> vehicleMasters = new List<mod.VehicleMaster>();
                 foreach (DataRow dr in data.Tables[0].Rows)
                 {
-                    vehicleMasters.Add(new mod.VehicleMaster { ID = Convert.ToInt32(dr["ID"]), VehicleType = Convert.ToString(dr["Type"]) });
+                    vehicleMasters.Add(new mod.VehicleMaster { ID = Convert.ToInt32(dr["ID"]), VehicleType = Convert.ToString(dr["VehicleType"]) });
 
                 }
                 return Ok(vehicleMasters);
