@@ -26,12 +26,12 @@ namespace DataAccessManager.Operations
             _dataSet = new DataSet();
         }
 
-        public DataSet GetParkingRecord(Models.FlatDetails flatDetails)
+        public DataSet GetParkingRecord(int FlatId, int SocietyID)
         {
-            _sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
-            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.GET_PARKING_MASTER;
-            _sqlCommand.Parameters.AddWithValue("@FlatID", flatDetails.ID);
-            _sqlCommand.Parameters.AddWithValue("@SocietyID", flatDetails.Society.ID);            
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.GET_PARKING_RECORD;
+            _sqlCommand.Parameters.AddWithValue("@FlatID", FlatId);
+            _sqlCommand.Parameters.AddWithValue("@SocietyID", SocietyID);            
             _sqlDataAdapter.SelectCommand = _sqlCommand;
             _sqlDataAdapter.Fill(_dataSet);
             return _dataSet;

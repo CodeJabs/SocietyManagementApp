@@ -6,7 +6,7 @@ namespace DataAccessManager.Interface
     public interface IFlatsBillingMaster
   
     {
-        DataSet GetFlatBillingDetails(Models.FlatDetails flatDetails);
+        DataSet GetFlatBillingDetails(int flatID);
 
         Models.FlatsBillingMaster Add(Models.FlatDetails flatDetails, Models.FlatsBillingMaster flatsBillingMaster);
 

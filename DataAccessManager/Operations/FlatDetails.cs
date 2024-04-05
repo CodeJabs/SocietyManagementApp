@@ -36,13 +36,13 @@ namespace DataAccessManager.Operations
             return _dataSet;
         }
 
-        public DataSet GetFlatDetails(int societyID, int flatNo)
+        public DataSet GetFlatDetails(int societyID, int flatID)
         {
             //_sqlDataAdapter.SelectCommand.Connection = _sqlConnection;
             _sqlCommand.CommandType = CommandType.StoredProcedure;
             _sqlDataAdapter.SelectCommand.CommandText = StoreProcedures.GET_FLAT_DETAILS;
             _sqlCommand.Parameters.AddWithValue("@SocietyID", societyID);
-            _sqlCommand.Parameters.AddWithValue("@FlatNo", flatNo);
+            _sqlCommand.Parameters.AddWithValue("@FlatID", flatID);
             _sqlDataAdapter.SelectCommand = _sqlCommand;
             _sqlDataAdapter.Fill(_dataSet);
             return _dataSet;
@@ -57,6 +57,7 @@ namespace DataAccessManager.Operations
             _sqlCommand.Parameters.AddWithValue("@FlatOwner", flatDetails.FlatOwner);
             _sqlCommand.Parameters.AddWithValue("@ContactNo", flatDetails.ContactNo);
             _sqlCommand.Parameters.AddWithValue("@FlatOccupanyID", flatOccupancyMaster.ID);
+            _sqlCommand.Parameters.AddWithValue("@FlatTypeID", flatDetails.FlatTypeId);
             _sqlCommand.ExecuteNonQuery();
             return flatDetails;
         }
@@ -71,6 +72,7 @@ namespace DataAccessManager.Operations
             _sqlCommand.Parameters.AddWithValue("@FlatOwner", flatDetails.FlatOwner);
             _sqlCommand.Parameters.AddWithValue("@ContactNo", flatDetails.ContactNo);
             _sqlCommand.Parameters.AddWithValue("@FlatOccupanyID", flatOccupancyMaster.ID);
+            _sqlCommand.Parameters.AddWithValue("@FlatTypeID", flatDetails.FlatTypeId);
             _sqlCommand.ExecuteNonQuery();
             return flatDetails;
         }

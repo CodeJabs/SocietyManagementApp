@@ -1,4 +1,6 @@
-﻿namespace DataAccessManager
+﻿using System.Xml.Serialization;
+
+namespace DataAccessManager
 {
     public class StoreProcedures
     {
@@ -41,6 +43,7 @@
         public const string ADD_PARKING_MASTER = SCHEMA_NAME + "Proc_AddParkingMaster";
         public const string UPDATE_PARKING_MASTER = SCHEMA_NAME + "Proc_UpdateParkingMaster";
         public const string GET_PARKING_MASTER = SCHEMA_NAME + "Proc_GetParkingMaster";
+        public const string GET_PARKING_RECORD = SCHEMA_NAME + "Proc_GetParkingRecord";
         public const string ADD_PARKING_RECORD = SCHEMA_NAME + "Proc_AddParkingRecord";
         public const string UPDATE_PARKING_RECORD = SCHEMA_NAME + "Proc_UpdateParkingRecord";
         public const string UPDATE_PAYMENT_MASTER = SCHEMA_NAME + "Proc_UpdatePaymentMaster";
@@ -77,6 +80,9 @@
         public const string GET_ALL_USER_DETAILS = SCHEMA_NAME + "Proc_GetALLUserMasterDetails";
         public const string ADD_USERS_MASTER = SCHEMA_NAME + "Proc_AddUserMaster";
         public const string UPDATE_USERS_MASTER = SCHEMA_NAME + "Proc_UpdateUserMaster";
+        public const string GET_FLAT_TYPE_MASTER=SCHEMA_NAME +"Proc_GetFlatsType";
+        public const string ADD_FLAT_TYPE_MASTER=SCHEMA_NAME + "Proc_AddFlatType";
+        public const string UPDATE_FLAT_TYPE_MASTER = SCHEMA_NAME + "Proc_UpdateFlatType";
 
     }
 }

@@ -21,21 +21,23 @@ namespace SSMSAPI.Controllers
         [HttpGet]
         [Route("ParkingRecords/ParkingRecord")]
 
-        public IActionResult GetParkingRecord([FromBody] mod.FlatDetails flatDetails)
+        public IActionResult GetParkingRecord(int FlatId,int SocietyID)
         {
             try
             {
-                var data = IparkingRecords.GetParkingRecord(flatDetails);
+                var data = IparkingRecords.GetParkingRecord(FlatId, SocietyID);
                 if (data.Tables == null) { return NotFound("Error ! Failed To get Records"); }
                 if (data.Tables[0].Rows.Count == 0) { return NotFound("No Records Found."); }
                 List<mod.ParkingRecords> parkingRecords = new List<mod.ParkingRecords>();
                 foreach (DataRow dr in data.Tables[0].Rows)
                 {
-                    parkingRecords.Add(new mod.ParkingRecords { FlatDetails = flatDetails,
+                    parkingRecords.Add(new mod.ParkingRecords {FlatDetails =new mod.FlatDetails { FlatNo = Convert.ToInt32(dr["FlatNo"]) },
                         ID = Convert.ToInt32(dr["ID"]),
                         ParkingCharges = Convert.ToInt32(dr["ParkingCharges"]),
                         ParkinghNo = Convert.ToString(dr["ParkingNo"]),
-                        VehicleNumber = Convert.ToString(dr["VehicleNumber"])                        
+                        VehicleNumber = Convert.ToString(dr["VehicleNumber"]),
+                        VehicleType = Convert.ToString(dr["VehicleType"])
+
                     });
                 }
                 return Ok(parkingRecords);

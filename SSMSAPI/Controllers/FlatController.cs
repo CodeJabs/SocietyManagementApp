@@ -54,12 +54,12 @@ namespace SSMSAPI.Controllers
         [HttpGet]
         [Route("Flat/GetFlatDetails")]
  
-        public IActionResult GetFlatDetails(int societyID , int flatNo)        
+        public IActionResult GetFlatDetails(int societyID , int flatID)        
 
         {
             try
             {
-                var data = IflatDetails.GetFlatDetails(societyID, flatNo);
+                var data = IflatDetails.GetFlatDetails(societyID, flatID);
                 if (data.Tables == null) { return NotFound("Error ! Failed To get Records"); }
                 if (data.Tables[0].Rows.Count == 0) { return NotFound("No Records Found."); }
                 flatDetails.ID = Convert.ToInt32(data.Tables[0].Rows[0]["ID"]);
@@ -69,6 +69,7 @@ namespace SSMSAPI.Controllers
                 flatDetails.FlatOccupanyMaster = new FlatOccupancyMaster();
                 flatDetails.FlatOccupanyMaster.ID = Convert.ToInt32(data.Tables[0].Rows[0]["OccupancyID"]);
                 flatDetails.FlatOccupanyMaster.OccupancyType = Convert.ToString(data.Tables[0].Rows[0]["OccupancyType"]);
+                flatDetails.FlatTypeId = Convert.ToInt32(data.Tables[0].Rows[0]["FlatTypeID"]);
 
                 return Ok(flatDetails);
             }

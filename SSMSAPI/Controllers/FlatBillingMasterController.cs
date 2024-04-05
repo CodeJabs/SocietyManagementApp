@@ -21,11 +21,11 @@ namespace SSMSAPI.Controllers
 
         [HttpGet]
         [Route("FlatBillingMaster/GetMaster")]       
-        public IActionResult GetBillingMaster([FromBody] mod.FlatDetails flatDetails)
+        public IActionResult GetBillingMaster(int flatID)
         {
             try
             {
-                var data = IflatsBillingMaster.GetFlatBillingDetails(flatDetails);
+                var data = IflatsBillingMaster.GetFlatBillingDetails(flatID);
                 if (data.Tables == null) { return NotFound("Error ! Failed To get Records"); }
                 if (data.Tables[0].Rows.Count == 0) { return NotFound("No Records Found."); }
                 List<mod.FlatsBillingMaster> flatsBillingMasters = new List<mod.FlatsBillingMaster>();
@@ -45,7 +45,9 @@ namespace SSMSAPI.Controllers
                             ServiceCharges = Convert.ToDouble(dr["ServiceCharges"]),
                             StandardPricing = Convert.ToDouble(dr["StandardPricing"]),
                             Type = Convert.ToString(dr["Type"]),
-                            Id = Convert.ToInt32(dr["ID"])
+                            Id = Convert.ToInt32(dr["ID"]),
+                            InvoiceID = Convert.ToInt32(dr["InvoiceID"]),
+                            QuaterTypeID = Convert.ToInt32(dr["QuaterTypeID"])
                         });
                 }
 

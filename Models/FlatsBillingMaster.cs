@@ -17,6 +17,8 @@
         private double _electricityCharges;
         private double _propertyTax;
         private BillingQuaterMaster _billingQuaterMaster;
+        private int _invoiceID;
+        private int _quaterTypeID;
         public int Id { get { return _id; } set { _id = value; } }
         public string Type { get { return _type; } set { _type = value; } }
         public double StandardPricing { get { return _standardPricing; } set { _standardPricing = value; } }
@@ -31,8 +33,9 @@
         public double ServiceCharges { get { return _serviceCharges; } set { _serviceCharges = value; } }
         public double ElectricityCharges { get { return _electricityCharges; } set { _electricityCharges = value; } }
         public double PropertyTax { get { return _propertyTax; } set { _propertyTax = value; } }
-
         public BillingQuaterMaster BillingQuaterMaster {get {return _billingQuaterMaster ;} set { _billingQuaterMaster = value; } }
+        public int InvoiceID { get { return _invoiceID; } set { _invoiceID = value; } }
+        public int QuaterTypeID { get { return _quaterTypeID; } set { _quaterTypeID = value; } }
 
 
     }

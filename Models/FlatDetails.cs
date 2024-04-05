@@ -1,4 +1,6 @@
-﻿namespace Models
+﻿using System.Security.AccessControl;
+
+namespace Models
 {
     public class FlatDetails
     {
@@ -8,6 +10,7 @@
         private string _flatOwner;
         private string _contactNo;
         private FlatOccupancyMaster _flatOccupanyMaster;
+        private int _flatTypeId;
 
         public int ID { get { return _iD; }set { _iD = value; } }
         public Society Society { get { return _society; } set { _society = value; } }
@@ -19,6 +22,6 @@
         
         public FlatOccupancyMaster FlatOccupanyMaster { get { return _flatOccupanyMaster; } set { _flatOccupanyMaster = value; } }
 
-
+        public int FlatTypeId { get { return _flatTypeId; } set { _flatTypeId = value ; } }
     }
 }
