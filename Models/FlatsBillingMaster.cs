@@ -3,7 +3,7 @@
     public class FlatsBillingMaster
     {
         private int _id;
-        private string _type;
+        private int _type;
         private double _standardPricing;
         private double _sgst;
         private double _cgst;
@@ -19,8 +19,10 @@
         private BillingQuaterMaster _billingQuaterMaster;
         private int _invoiceID;
         private int _quaterTypeID;
+        private double _otherCharges;
+        private string _reason;
         public int Id { get { return _id; } set { _id = value; } }
-        public string Type { get { return _type; } set { _type = value; } }
+        public int Type { get { return _type; } set { _type = value; } }
         public double StandardPricing { get { return _standardPricing; } set { _standardPricing = value; } }
         public double SGST { get { return _sgst; } set { _sgst = value; } }
         public double CGST { get { return _cgst; } set { _cgst = value; } }
@@ -36,6 +38,8 @@
         public BillingQuaterMaster BillingQuaterMaster {get {return _billingQuaterMaster ;} set { _billingQuaterMaster = value; } }
         public int InvoiceID { get { return _invoiceID; } set { _invoiceID = value; } }
         public int QuaterTypeID { get { return _quaterTypeID; } set { _quaterTypeID = value; } }
+        public double OtherCharges { get { return _otherCharges; } set { _otherCharges = value; } }
+        public string Reason { get { return _reason; } set { _reason = value; } }
 
 
     }

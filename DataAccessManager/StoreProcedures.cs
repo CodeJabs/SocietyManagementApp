@@ -83,6 +83,11 @@ namespace DataAccessManager
         public const string GET_FLAT_TYPE_MASTER=SCHEMA_NAME +"Proc_GetFlatsType";
         public const string ADD_FLAT_TYPE_MASTER=SCHEMA_NAME + "Proc_AddFlatType";
         public const string UPDATE_FLAT_TYPE_MASTER = SCHEMA_NAME + "Proc_UpdateFlatType";
+        public const string GET_BILLING_QUARTER_LIST = SCHEMA_NAME + "Proc_GetBillingQuaterList";
+        public const string UPDATE_BILLING_QUARTER = SCHEMA_NAME + "Proc_UpdateBillingQuaterMaster";
+        public const string ADD_BILLING_QUARTER = SCHEMA_NAME + "Proc_AddBillingQuaterMaster";
+
+
 
     }
 }

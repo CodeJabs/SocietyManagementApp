@@ -44,7 +44,7 @@ namespace SSMSAPI.Controllers
                             PropertyTax = Convert.ToDouble(dr["PropertyTax"]),
                             ServiceCharges = Convert.ToDouble(dr["ServiceCharges"]),
                             StandardPricing = Convert.ToDouble(dr["StandardPricing"]),
-                            Type = Convert.ToString(dr["Type"]),
+                            Type = Convert.ToInt32(dr["Type"]),
                             Id = Convert.ToInt32(dr["ID"]),
                             InvoiceID = Convert.ToInt32(dr["InvoiceID"]),
                             QuaterTypeID = Convert.ToInt32(dr["QuaterTypeID"])
